@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cover</title>
+    <style>
+        .cover
+        {
+            background: url('표지.png') no-repeat center center fixed; 
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+        .pwPos
+        {
+            position : absolute;
+            left: 43%;
+            top: 65%;
+
+        }
+        .pw
+        {
+            width: 150px;
+            height: 50px;
+            font-size: 10px;
+            border-radius: 20px 20px 20px 20px;
+        }
+        .btn
+        {
+            width:100px;
+            height: 50px;
+            background-color: #7F8993;
+            border: none;
+            color:#fff;
+            padding: 5px 0;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 10px;
+            margin: 2px;
+            cursor: pointer;
+            border-radius: 20px 20px 20px 20px;
+        }
+        .btn:hover
+        {
+            background-color : #91CDEB;
+        }
+    </style>
+</head>
+<body class = "cover">
+    <form class = "pwPos">
+        <input class = "pw" type = "password" id = "pw" placeholder = " PASSWORD">
+        <input class = "btn" type = "button"  onclick = "login()" value = "ENTER:)">
+    </form>
+
+    <script>
+        function login()
+        {
+            var PASSWORD = document.getElementById('pw').value;
+
+            if(PASSWORD == '1002') /*비밀번호는 1002로 설정*/
+            {
+                location.href = "calendar.html";
+            }
+
+            else
+            {
+                alert("You can't open diary:(");
+            }
+        }
+    </script>
+</body>
+</html>

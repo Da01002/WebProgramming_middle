@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bg
+        {
+            background: url('구겨진종이.jpg') no-repeat center center fixed; 
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+        h1.header
+        {
+            font-size: 50px;
+            margin: 10px 0 0 10px;
+            color: #5f6166;
+        }
+        img.box1
+        {
+            width: 80px;
+            height: 80px;
+          
+        }
+        img.box2
+        {
+            width: 300px;
+            height: 400px;
+          
+        }
+    </style>
+</head>
+<body class = "bg">
+    <h1 class = "header">Journal
+        <img class = "box1" src="원_c.png" onclick = "goCalendar()" align="right">
+        <img class = "box1" src="원_j.png"  onclick =  "goJournal()" align="right">
+        <img class = "box1" src="원_t.png"  onclick =  "goToDo()" align="right">
+    </h1>
+
+
+    <script>
+        function goToDo()
+        {
+            location.href = "ToDo.html";
+        }
+        function goJournal()
+        {
+            location.href = "journal.html";
+        }
+        function goCalendar()
+        {
+            location.href = "calendar.html";
+        }
+    </script>
+    <table width="500px"  align = "center">
+        <tr>
+            <td><img class = "box2" src = "그림_1.png"></td>
+            <td><img class = "box2"src = "그림_2.png"></td>
+        </tr>
+        <tr>
+            <td><img class = "box2"src = "그림_3.png"></td>
+            <td><img class = "box2"src = "그림_4.png"></td>
+        </tr>
+    </table>
+   
+
+</body>
+</html>

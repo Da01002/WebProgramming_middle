@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar</title>
+    <style type="text/css">
+        td {
+            width: 11%;
+            height: 50%;
+            text-align: center;
+            font-size: 30px;
+            border: 2px;
+            border-color: #FFFF;
+            border-radius: 20% 20% 20% 20%;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            padding-left: 15px;
+            padding-right: 15px;
+
+        }
+        .bg
+        {
+            background: url('달력배경.jpg') no-repeat center center fixed; 
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+        h1.header
+        {
+            font-size: 50px;
+            margin: 0 0 70px ;
+            color: white;
+        }
+        .btnPos1
+        {
+            position: fixed;
+            right: 0;
+        }
+        .btnPos2
+        {
+            position: fixed;
+            right: 50;
+        }
+        .btnPos3
+        {
+            position: fixed;
+            right: 100;
+        }
+        img.box1
+        {
+            width: 80px;
+            height: 80px;
+        }
+    </style>
+    
+    <script>
+        var month = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+        var today = new Date();
+        var date = new Date();
+        function preMonth() {
+            today = new Date(today.getFullYear(), today.getMonth() - 1, today.getDate());
+            buildCalendar();
+        }
+        function nextMonth() {
+            today = new Date(today.getFullYear(), today.getMonth() + 1, today.getDate());
+            buildCalendar();
+        }
+        function buildCalendar() {
+            var doMonth = new Date(today.getFullYear(), today.getMonth(), 1);
+            var lastDate = new Date(today.getFullYear(), today.getMonth() + 1, 0);
+            var tbCalendar = document.getElementById("calendar");
+            var tbCalendarYM = document.getElementById("tbCalendarYM");
+            tbCalendarYM.innerHTML = today.getFullYear() + " " + (month[today.getMonth()]);
+
+            while (tbCalendar.rows.length > 2) {
+                tbCalendar.deleteRow(tbCalendar.rows.length - 1);
+            }
+            var row = null;
+            row = tbCalendar.insertRow();
+
+            var cnt = 0;
+
+            for (i = 0; i < doMonth.getDay(); i++) {
+                cell = row.insertCell();
+                cnt = cnt + 1;
+            }
+
+            for (i = 1; i <= lastDate.getDate(); i++) {
+                cell = row.insertCell();
+                cell.innerHTML = i;
+                cnt = cnt + 1;
+                if (cnt % 7 == 1) {
+                    cell.innerHTML = "<font color=#F79DC2>" + i
+                }
+                if (cnt % 7 == 0) {
+                    cell.innerHTML = "<font color=skyblue>" + i
+                    row = calendar.insertRow();
+                }
+
+                if (today.getFullYear() == date.getFullYear() && today.getMonth() == date.getMonth() && i == date.getDate()) {
+                    cell.bgColor = "#FAED7D";
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg">
+    <h1 class = "header">Calendar
+        <img src="원_c.png" class = "box1" onclick = "goCalendar()" align="right">
+        <img src="원_j.png"  class = "box1" onclick =  "goJournal()" align="right">
+        <img src="원_t.png"  class = "box1" onclick =  "goToDo()" align="right">
+    </h1>
+    <p></p>    
+        <script>
+            function goToDo()
+            {
+                location.href = "ToDo.html";
+            }
+            function goJournal()
+            {
+                location.href = "journal.html";
+            }
+            function goCalendar()
+            {
+                location.href = "calendar.html";
+            }
+        </script>
+    <table id="calendar" align="center" width = "90%" style="color: #FFFF ">
+        <tr>
+            <td><label onclick="preMonth()">&#11164;</label></td>
+            <td align="center" id="tbCalendarYM" colspan="5">
+                yyyy년 m월</td>
+            <td><label onclick="nextMonth()">	
+                &#11166;</label></td>
+        </tr>
+        <tr>
+            <td align="center"><font color="#F79DC2">S</td>
+            <td align="center"><font color="white">M</td>
+            <td align="center"><font color="white">T</td>
+            <td align="center"><font color="white">W</td>
+            <td align="center"><font color="white">T</td>
+            <td align="center"><font color="white">F</td>
+            <td align="center"><font color="white">S</td>
+        </tr>
+    </table>
+    <script language="javascript" type="text/javascript">
+        buildCalendar();
+    </script>
+        
+</body>
+
+</html>
